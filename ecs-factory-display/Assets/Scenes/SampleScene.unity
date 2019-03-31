@@ -323,3 +323,5 @@ MonoBehaviour:
   robotPrefab: {fileID: 3479281789477725186, guid: ef71506f3851dab49a6f2c6cb600e75d,
     type: 3}
   moveTime: 2
+  robotMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
