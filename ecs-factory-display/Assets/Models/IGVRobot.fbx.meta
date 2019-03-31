@@ -13,7 +13,32 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: IGVRobot
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 001
+    second: {fileID: 2100000, guid: 367aaf47a53c0454d9825e03c62c406b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 002
+    second: {fileID: 2100000, guid: 52700f340b031d34784320e5436c8ed2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 003
+    second: {fileID: 2100000, guid: 4d550807388982148878fa124f73f0f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 004
+    second: {fileID: 2100000, guid: 0e28588ee57b8d443af0686ffd8871da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 005
+    second: {fileID: 2100000, guid: d8e8048e7f618ed40b0c971d5d10a323, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

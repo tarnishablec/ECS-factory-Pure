@@ -322,4 +322,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robotPrefab: {fileID: 3479281789477725186, guid: ef71506f3851dab49a6f2c6cb600e75d,
     type: 3}
-  moveTime: 0
+  moveTime: 2

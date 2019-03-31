@@ -4,11 +4,15 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.Collections;
 using Unity.Mathematics;
+using Unity.Rendering;
+using Unity.Transforms;
 
 public class RobotEntityBootstrap : Bootstrap
 {
     public GameObject robotPrefab;
     public float moveTime;
+    public Mesh robotMesh;
+    public Material material;
 
     NativeArray<Entity> robots;
     EntityManager entityManager;
@@ -38,7 +42,9 @@ public class RobotEntityBootstrap : Bootstrap
 
         for (int i = 0; i < robots.Length; i++)
         {
-            entityManager.AddComponentData(robots[i], new TargetPositionComponent { Value = new float3(0, 0, -5) });
+            entityManager.AddComponentData(robots[i], new Position { });
+            entityManager.AddComponentData(robots[i], new TargetPositionComponent { Value = new float3(0, -5, 0) });
+            entityManager.AddSharedComponentData(robots[i], new RenderMesh { mesh = robotMesh, material = material });
         }
         robots.Dispose();
     }

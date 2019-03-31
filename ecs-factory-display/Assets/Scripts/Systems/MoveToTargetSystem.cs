@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Transforms;
 
 public class MoveToTargetSystem : ComponentSystem
 {
     struct Group
     {
         public readonly int Length;
-        public ComponentArray<Transform> transforms;
+        public ComponentDataArray<Position> positions;
         public ComponentDataArray<TargetPositionComponent> targetPosition;
     }
 
@@ -21,12 +22,14 @@ public class MoveToTargetSystem : ComponentSystem
     {
         float moveTime = Bootstrap.GetBootstrap<RobotEntityBootstrap>().moveTime;
 
+        var deltaTime = Time.deltaTime;
+
         for (int i = 0; i < group.Length; i++)
         {
-            Vector3 nowPos = group.transforms[i].position;
+            float3 nowPos = group.positions[i].Value;
             float3 tarPos = group.targetPosition[i].Value;
-            float distance = math.distance(tarPos, nowPos);
-            group.transforms[i].position = Vector3.MoveTowards(nowPos, tarPos, distance / moveTime);
+            //float distance = math.distance(tarPos, nowPos);
+            group.positions[i] = new Position { Value = math.lerp(nowPos, tarPos, deltaTime/moveTime) };
         }
     }
 }

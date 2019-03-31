@@ -5,6 +5,8 @@ using Unity.Entities;
 
 public class UpdateTargetSystem : ComponentSystem
 {
+
+
     protected override void OnUpdate()
     {
     }
