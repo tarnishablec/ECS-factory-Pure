@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 public static class RobotPool
 {
-    public static Dictionary<string, Dictionary<string, string>> robotsData;
+    public static Dictionary<string, Dictionary<string, string>> robotsData = new Dictionary<string, Dictionary<string, string>>() ;
 
     //[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void UpdateRobotsData(string str)

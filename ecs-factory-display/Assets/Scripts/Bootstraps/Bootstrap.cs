@@ -10,7 +10,7 @@ public class Bootstrap : MonoBehaviour
         return World.Active.GetOrCreateManager<EntityManager>();
     }
 
-    public static T GetBootstrap<T>()
+    public static T GetBootstrap<T>() where T : Bootstrap
     {
         return GameObject.FindGameObjectWithTag("BootstrapManager").GetComponent<T>();
     }

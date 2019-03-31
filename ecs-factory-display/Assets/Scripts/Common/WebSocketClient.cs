@@ -16,7 +16,6 @@ public class WebSocketClient
 
     private void Init()
     {
-        Debug.Log(1);
         webSocket = new WebSocket(new Uri(uri));
         webSocket.OnOpen += OnOpen;
         webSocket.OnMessage += OnMessageReceived;

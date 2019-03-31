@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cb2af6fb7774f4f911b8861c14bac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uri: ws://localhost:10010
+  uri: ws://localhost:10010/robots
 --- !u!114 &1256424965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,3 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b226d4e27172445a142f5cbc5a4385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robotPrefab: {fileID: 3479281789477725186, guid: ef71506f3851dab49a6f2c6cb600e75d,
+    type: 3}
+  moveTime: 0

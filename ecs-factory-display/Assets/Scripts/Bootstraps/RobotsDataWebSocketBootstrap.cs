@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using BestHTTP.WebSocket;
 using UnityEngine;
 
-public class RobotsDataWebSocketBootstrap : MonoBehaviour
+public class RobotsDataWebSocketBootstrap : Bootstrap
 {
     public string uri;
 
     private WebSocketClient socketClient;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         socketClient = new RobotDataWebSocketClient(uri);
         socketClient.Connect();
@@ -31,6 +31,6 @@ public class RobotDataWebSocketClient : WebSocketClient
     public override void OnMessageReceived(WebSocket ws, string message)
     {
         RobotPool.UpdateRobotsData(message);
-        Debug.Log("updated "+RobotPool.robotsData.Count);
+        //Debug.Log("updated "+RobotPool.robotsData.Count);
     }
 }
