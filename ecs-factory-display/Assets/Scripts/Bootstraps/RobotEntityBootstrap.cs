@@ -5,10 +5,7 @@ using Unity.Entities;
 
 public class RobotEntityBootstrap : Bootstrap
 {
+    public GameObject robotPrefab;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    public static void Boot()
-    {
-
-    }
+    
 }
