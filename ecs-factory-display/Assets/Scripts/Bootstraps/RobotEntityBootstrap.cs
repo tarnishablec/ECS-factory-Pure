@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 using Unity.Collections;
-using Unity.Mathematics;
 using Unity.Rendering;
 using Unity.Transforms;
 
 public class RobotEntityBootstrap : Bootstrap
 {
-    public GameObject robotPrefab;
+    //public GameObject robotPrefab;
     public float moveTime;
     public Mesh robotMesh;
-    public Material material;
+
+    public Material PT;
+    public Material ST;
+    public Material SD;
+    public Material NS;
+    public Material UD;
+    public Material ET;
+    public Material CH;
 
     NativeArray<Entity> robots;
     EntityManager entityManager;
+
+    EntityArchetype archetype;
 
     private void Start()
     {
@@ -31,20 +39,24 @@ public class RobotEntityBootstrap : Bootstrap
             yield return 0;
         }
         SpawnAllRobots();
-        Debug.Log(RobotPool.robotsData.Count);
     }
 
     public void SpawnAllRobots()
     {
+        archetype = entityManager.CreateArchetype(typeof(Position), typeof(TargetPositionComponent), typeof(RenderMesh), typeof(RobotNameComponent));
+
         robots = new NativeArray<Entity>(RobotPool.robotsData.Count, Allocator.Temp);
         Debug.Log(robots.Length);
-        entityManager.Instantiate(robotPrefab, robots);
+        entityManager.CreateEntity(archetype, robots);
+
+        var robotNameList = new List<string>(RobotPool.robotsData.Keys);
 
         for (int i = 0; i < robots.Length; i++)
         {
-            entityManager.AddComponentData(robots[i], new Position { });
-            entityManager.AddComponentData(robots[i], new TargetPositionComponent { Value = new float3(0, -5, 0) });
-            entityManager.AddSharedComponentData(robots[i], new RenderMesh { mesh = robotMesh, material = material });
+            entityManager.SetComponentData(robots[i], new Position { });
+            entityManager.SetComponentData(robots[i], new TargetPositionComponent { });
+            entityManager.SetSharedComponentData(robots[i], new RenderMesh { mesh = robotMesh });
+            entityManager.SetComponentData(robots[i], new RobotNameComponent { Value = new NativeString64(robotNameList[i]) });
         }
         robots.Dispose();
     }
