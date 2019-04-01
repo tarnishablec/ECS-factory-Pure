@@ -1,7 +1,7 @@
 # ECS-factory
-Unity WebGL solution, no Job System
+Unity WebGL solution
 
-Use Pure ECS  
+Use Pure ECS, no Job System  
 
 WebsocketClient  
 
